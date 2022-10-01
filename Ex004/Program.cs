@@ -1,0 +1,10 @@
+﻿Console.WriteLine("Введите целое число");
+int n = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Введите еще одно целое число");
+int m = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("И еще одно целое число");
+int p = Convert.ToInt32(Console.ReadLine());
+int max = n;
+if (m > max) max = m;
+if (p > max) max = p;
+Console.Write("Максимальное число = " + max);
