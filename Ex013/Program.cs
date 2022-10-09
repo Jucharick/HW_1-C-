@@ -7,21 +7,21 @@ Console.WriteLine("Введите целое число");
 string n = Console.ReadLine();
 if (n.Length < 3) Console.WriteLine("третьей цифры нет");
 else if (n[0] == '-') Console.WriteLine(n[3]);
-else {Console.WriteLine($"третья цифра = {n[2]}");}
+else { Console.WriteLine($"третья цифра = {n[2]}"); }
 
 
 // Console.WriteLine("Введите целое число");
 // int n =  Math.Abs(Convert.ToInt32(Console.ReadLine()));
 // if (n > 99)
 // {
-//     if (n<1000)
+//     if (n < 1000)
 //     {
 //         Console.WriteLine($"третья цифра = {n % 10}");
 //     }
 //     else 
 //     {
 //         int i = 10;
-//         while (n/i >1000)
+//         while (n/i > 1000)
 //         {
 //             i = i*10;
 //         }
