@@ -26,3 +26,11 @@ else
 // }
 // Console.WriteLine();
 // Console.WriteLine("вторая цифра = " + arr[1]);
+
+
+
+// Console.WriteLine("Введите целое трехзачное число");
+// string n = Console.ReadLine();
+// if (n.Length > 3 | n.Length < 3) Console.WriteLine("это не трехзачное число");
+// else if (n[0] == '-') Console.WriteLine(n[2]);
+// else {Console.WriteLine($"вторая цифра = {n[1]}");}
