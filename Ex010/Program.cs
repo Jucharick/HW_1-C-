@@ -6,7 +6,7 @@
 
 Console.WriteLine("Введите целое трехзачное число");
 int n = Math.Abs(Convert.ToInt32(Console.ReadLine()));
-if (n < 100 | n > 1000)
+if (n < 100 | n > 999)
 {
     Console.WriteLine("Вы ввели некорректное значение");
 }
