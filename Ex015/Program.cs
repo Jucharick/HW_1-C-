@@ -6,8 +6,8 @@
 
 Console.WriteLine("Введите номер дня недели");
 string n = Console.ReadLine();
-if ( n == "6" | n == "7") Console.WriteLine("да");
-else if (n == "1" | n == "2" | n == "3" | n == "4" | n == "5") Console.WriteLine("нет");
+if ( n == "6" || n == "7") Console.WriteLine("да");
+else if (n == "1" || n == "2" || n == "3" || n == "4" || n == "5") Console.WriteLine("нет");
 else Console.WriteLine("Вы ввели некорректное значение");
 
 
@@ -17,6 +17,6 @@ else Console.WriteLine("Вы ввели некорректное значени�
 
 // Console.WriteLine("Введите номер дня недели");
 // int n = Convert.ToInt32(Console.ReadLine());
-// if ( n == 6 | n == 7) Console.WriteLine("да");
-// else if (n == 1 | n == 2 | n == 3 | n == 4 | n == 5) Console.WriteLine("нет");
+// if ( n == 6 || n == 7) Console.WriteLine("да");
+// else if (n == 1 || n == 2 || n == 3 || n == 4 || n == 5) Console.WriteLine("нет");
 // else Console.WriteLine("Вы ввели некорректное значение");
