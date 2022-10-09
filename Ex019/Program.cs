@@ -7,7 +7,7 @@
 
 Console.WriteLine("Давайте проверим является ли число палиндромом. Введите целое число: ");
 string n = Console.ReadLine();
-if ( int.TryParse(n, out int result) ) // проверя, что ввели число
+if ( int.TryParse(n, out int result) ) // проверя., что ввели число
 {
     int length = n.Length;
     if (length % 2 != 0)
