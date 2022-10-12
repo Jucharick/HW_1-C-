@@ -10,8 +10,6 @@ string n = Console.ReadLine();
 if ( int.TryParse(n, out int result) ) // проверяю, что ввели число
 {
     int length = n.Length;
-    if (length % 2 != 0)
-    {
         int i = 0;
         bool check = false;
         while (i < length/2)
@@ -29,8 +27,6 @@ if ( int.TryParse(n, out int result) ) // проверяю, что ввели ч
         }   
         if (check == true) Console.WriteLine("палиндром!!!");
         else Console.WriteLine("нет, не палиндром");
-    }
-    else Console.WriteLine("У палиндрома должно быть нечетное количество цифр");
 }
 else Console.WriteLine("вы ввели некорректное значение");
 
