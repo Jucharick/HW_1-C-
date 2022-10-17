@@ -38,6 +38,6 @@ void sumOdd(int[] array)
 }
 
 
-FillArray(array, -7, 9);
+FillArray(array, -9, 10);
 PrintArray(array);
 sumOdd(array);
