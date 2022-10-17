@@ -1,5 +1,8 @@
-﻿// Задача 38: Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
+﻿// Задача 38: Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементом массива.
 // [3 7 22 2 78] -> 76
+
+// using System;
+// using System.Diagnostics; // пространство имен System.Diagnostics предоставляет классы, позволяющие осуществлять взаимодействие с системными процессами, журналами событий и счетчиками производительности.
 
 
 Console.WriteLine("Введите длину массива:");
@@ -49,8 +52,64 @@ void maxMin (double[] array)
     Console.Write($"Min = {array[0]};  Max = {array[array.Length-1]};  разница max - min = {maxMin}");
 }
 
+
+// var stopwatch = new Stopwatch(); // класс Stopwatch() предоставляет набор методов и свойств, которые можно использовать для точного измерения затраченного времени.
+// stopwatch.Start();
+
+
 FillArrayDouble(array, -5, 10);
 PrintArray(array);
 sort(array);
-// PrintArray(array);
+PrintArray(array);
 maxMin(array);
+
+
+// stopwatch.Stop();
+// Console.WriteLine();
+// Console.WriteLine($"Time spent: {stopwatch.ElapsedMilliseconds}"); // 9 элементов в массиве - 3 миллисекунды
+
+
+
+// второй вариант поиска разницы между максимальным и минимальным элементом массива
+
+
+// double findMax (double[] array)
+// {
+//     double max = array[0];
+//     double min = array[0];
+//     for (int i = 0; i <= array.Length - 1; i++) // идем до предпоследнего значения для того, чтобы было место для замены последнего и предпоследнего
+//     {
+//         if ( max < array[i]) 
+//         {
+//             max = array[i];
+//         }
+//     }
+//     // Console.WriteLine($"Max = {max}");
+//     return max;
+// }
+
+// double findMin (double[] array)
+// {
+//     double min = array[0];
+//     for (int i = 0; i <= array.Length - 1; i++) // идем до предпоследнего значения для того, чтобы было место для замены последнего и предпоследнего
+//     {
+//         if ( min > array[i]) 
+//         {
+//             min = array[i];
+//         }
+//     }
+//     // Console.WriteLine($"Min = {min}");
+//     return min;
+// }
+
+// var stopwatch = new Stopwatch(); // класс Stopwatch() предоставляет набор методов и свойств, которые можно использовать для точного измерения затраченного времени.
+// stopwatch.Start();
+
+// FillArrayDouble(array, -5, 10);
+// PrintArray(array);
+// double result = Math.Round((findMax (array) - findMin (array)), 1);
+// Console.WriteLine($"разница max - min = {result}");
+
+// stopwatch.Stop();
+// Console.WriteLine();
+// Console.WriteLine($"Time spent: {stopwatch.ElapsedMilliseconds}"); // 9 элементов в массиве - 4 миллисекунды + доп память
