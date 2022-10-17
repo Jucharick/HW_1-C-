@@ -77,8 +77,7 @@ maxMin(array);
 // {
 //     double max = array[0];
 //     double min = array[0];
-//     for (int i = 0; i <= array.Length - 1; i++) // идем до предпоследнего значения для того, чтобы было место для замены последнего и предпоследнего
-//     {
+//     for (int i = 0; i <= array.Length - 1; i++)
 //         if ( max < array[i]) 
 //         {
 //             max = array[i];
@@ -91,7 +90,7 @@ maxMin(array);
 // double findMin (double[] array)
 // {
 //     double min = array[0];
-//     for (int i = 0; i <= array.Length - 1; i++) // идем до предпоследнего значения для того, чтобы было место для замены последнего и предпоследнего
+//     for (int i = 0; i <= array.Length - 1; i++)
 //     {
 //         if ( min > array[i]) 
 //         {
