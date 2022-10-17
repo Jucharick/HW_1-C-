@@ -2,14 +2,6 @@
 // [3 7 22 2 78] -> 76
 
 
-
-
-FillArrayDouble(array, -5, 10);
-PrintArray(array);
-sort(array);
-PrintArray(array);
-
-
 Console.WriteLine("Введите длину массива:");
 int n = int.Parse(Console.ReadLine());
 double[] array = new Double[n];
@@ -35,7 +27,7 @@ void PrintArray(double[] array)
     Console.WriteLine();
 }
 
-void sort(double[] array)
+void sort(double[] array) // пузырьковая сортировка
 {
     for (int i = 0; i < array.Length; i++)
     {
@@ -50,3 +42,15 @@ void sort(double[] array)
         }
     }
 }
+
+void maxMin (double[] array)
+{
+    double maxMin = Math.Round((array[array.Length-1] - array[0]), 1);
+    Console.Write($"Min = {array[0]};  Max = {array[array.Length-1]};  разница max - min = {maxMin}");
+}
+
+FillArrayDouble(array, -5, 10);
+PrintArray(array);
+sort(array);
+// PrintArray(array);
+maxMin(array);
