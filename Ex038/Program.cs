@@ -1,9 +1,11 @@
 ﻿// Задача 38: Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементом массива.
 // [3 7 22 2 78] -> 76
 
-// using System;
-// using System.Diagnostics; // пространство имен System.Diagnostics предоставляет классы, позволяющие осуществлять взаимодействие с системными процессами, журналами событий и счетчиками производительности.
+using System;
+using System.Diagnostics; // пространство имен System.Diagnostics предоставляет классы, позволяющие осуществлять взаимодействие с системными процессами, журналами событий и счетчиками производительности.
 
+
+// первый вариант поиска разницы между максимальным и минимальным элементом массива
 
 Console.WriteLine("Введите длину массива:");
 int n = int.Parse(Console.ReadLine());
@@ -49,66 +51,66 @@ void sort(double[] array) // пузырьковая сортировка
 void maxMin (double[] array)
 {
     double maxMin = Math.Round((array[array.Length-1] - array[0]), 1);
-    Console.Write($"Min = {array[0]};  Max = {array[array.Length-1]};  разница max - min = {maxMin}");
+    Console.Write($"Max = {array[array.Length-1]};   Min = {array[0]};    разница max - min = {maxMin}");
 }
 
-
-// var stopwatch = new Stopwatch(); // класс Stopwatch() предоставляет набор методов и свойств, которые можно использовать для точного измерения затраченного времени.
-// stopwatch.Start();
 
 
 FillArrayDouble(array, -5, 10);
 PrintArray(array);
+
+
+var stopwatch = new Stopwatch(); // класс Stopwatch() предоставляет набор методов и свойств, которые можно использовать для точного измерения затраченного времени.
+stopwatch.Start();
+
 sort(array);
-PrintArray(array);
+// PrintArray(array);
 maxMin(array);
 
 
-// stopwatch.Stop();
-// Console.WriteLine();
-// Console.WriteLine($"Time spent: {stopwatch.ElapsedMilliseconds}"); // 9 элементов в массиве - 3 миллисекунды
+stopwatch.Stop();
+Console.WriteLine();
+Console.WriteLine($"Time spent: {stopwatch.ElapsedMilliseconds}"); // 99 элементов в массиве - быстрее, чем второй метод
 
 
 
 // второй вариант поиска разницы между максимальным и минимальным элементом массива
 
 
-// double findMax (double[] array)
-// {
-//     double max = array[0];
-//     double min = array[0];
-//     for (int i = 0; i <= array.Length - 1; i++)
-//         if ( max < array[i]) 
-//         {
-//             max = array[i];
-//         }
-//     }
-//     // Console.WriteLine($"Max = {max}");
-//     return max;
-// }
+double findMin (double[] array)
+{
+    double min = array[0];
+    for (int i = 0; i <= array.Length - 1; i++)
+    {
+        if ( min > array[i]) 
+        {
+            min = array[i];
+        }
+    }
+    Console.WriteLine($"Min = {min}");
+    return min;
+}
 
-// double findMin (double[] array)
-// {
-//     double min = array[0];
-//     for (int i = 0; i <= array.Length - 1; i++)
-//     {
-//         if ( min > array[i]) 
-//         {
-//             min = array[i];
-//         }
-//     }
-//     // Console.WriteLine($"Min = {min}");
-//     return min;
-// }
+double findMax (double[] array)
+{
+    double max = array[0];
+    for (int i = 0; i <= array.Length - 1; i++)
+    {
+        if ( max < array[i]) 
+        {
+            max = array[i];
+        }
+    }
+    Console.WriteLine($"Max = {max}");
+    return max;
+}
 
-// var stopwatch = new Stopwatch(); // класс Stopwatch() предоставляет набор методов и свойств, которые можно использовать для точного измерения затраченного времени.
-// stopwatch.Start();
+stopwatch.Restart(); // обнуляем счетчик класса Stopwatch()
 
-// FillArrayDouble(array, -5, 10);
-// PrintArray(array);
-// double result = Math.Round((findMax (array) - findMin (array)), 1);
-// Console.WriteLine($"разница max - min = {result}");
+Console.WriteLine();
+double result = Math.Round((findMax (array) - findMin (array)), 1);
+Console.WriteLine($"разница max - min = {result}");
 
-// stopwatch.Stop();
-// Console.WriteLine();
-// Console.WriteLine($"Time spent: {stopwatch.ElapsedMilliseconds}"); // 9 элементов в массиве - 4 миллисекунды + доп память
+stopwatch.Stop();
+Console.WriteLine();
+Console.WriteLine($"Time spent: {stopwatch.ElapsedMilliseconds}"); // 99 элементов в массиве - дольше
