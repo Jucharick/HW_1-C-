@@ -4,9 +4,15 @@
 
 
 
+FillArrayDouble(array, -5, 10);
+PrintArray(array);
+sort(array);
+PrintArray(array);
+
+
 Console.WriteLine("Введите длину массива:");
 int n = int.Parse(Console.ReadLine());
-double [] array = new Double[n];
+double[] array = new Double[n];
 
 void FillArrayDouble(double[] array, int from, int to)
 {
@@ -14,7 +20,8 @@ void FillArrayDouble(double[] array, int from, int to)
     {
         array[i] = new Random().Next(from, to);
         double rand = new Random().NextDouble(); // Random.NextDouble() Возвращает случайное число с плавающей запятой, которое больше или равно 0,0 и меньше 1,0.
-        array[i] = array[i] + Math.Round(rand, 1);
+        array[i] = array[i] + rand;
+        array[i] = Math.Round(array[i], 1);
     }
 }
 
@@ -28,18 +35,18 @@ void PrintArray(double[] array)
     Console.WriteLine();
 }
 
-void sumOdd(double[] array)
+void sort(double[] array)
 {
-    double sumOdd = 0;
-    for (int i = 1; i < array.Length; i += 2)
+    for (int i = 0; i < array.Length; i++)
     {
-        sumOdd = sumOdd + array[i];
+        for (int j = 0; j <= array.Length - 2; j++) // идем до предпоследнего значения для того, чтобы было место для замены последнего и предпоследнего
+        {
+            if (array[j] > array[j + 1]) 
+            {
+                double temp = array[j];
+                array[j] = array[j+1];
+                array[j+1] = temp;
+            }
+        }
     }
-    if (sumOdd != 0) Console.WriteLine($"Сумма нечетных чисел в массиве: {sumOdd}");
-    else Console.WriteLine("Нечетных чисел в массиве нет");
 }
-
-
-FillArrayDouble(array, -5, 10);
-PrintArray(array);
-sumOdd(array);
