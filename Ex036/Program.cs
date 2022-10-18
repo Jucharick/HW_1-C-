@@ -33,8 +33,8 @@ void sumOdd(int[] array)
     {
         sumOdd = sumOdd + array[i];
     }
-    if (sumOdd!= 0) Console.WriteLine($"Сумма нечетных чисел в массиве: {sumOdd}");
-    else Console.WriteLine("Нечетных чисел в массиве нет");
+    if (sumOdd!= 0) Console.WriteLine($"Сумма чисел стоящих на нечётных позициях: {sumOdd}");
+    else Console.WriteLine("Чисел, стоящих на нечётных позициях, в массиве нет");
 }
 
 
