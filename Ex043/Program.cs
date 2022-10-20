@@ -11,6 +11,8 @@ Console.WriteLine("Введите b2");
 double b2 = Convert.ToDouble(Console.ReadLine());
 Console.WriteLine("Введите k2");
 double k2 = Convert.ToDouble(Console.ReadLine());
+Console.WriteLine($"уравнения прямых принимают вид: y = {k1} * x + {b1}   и   y = {k2} * x + {b2}");
+
 
 // y = k1 * x + b1;
 // y = k2 * x + b2
