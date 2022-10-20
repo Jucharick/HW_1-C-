@@ -10,12 +10,12 @@ List<double> array = new List<double>(); // в c# нельзя создать д
 double n = 0;
 
 FillList(array);
-PrintList (array);
-Find (array);
+PrintList(array);
+Find(array);
 
-void FillList (List<double> array)
+void FillList(List<double> array)
 {
-    while ( n != 111 )
+    while (n != 111)
     {
         Console.WriteLine("Введите число. В качестве последнего элемента введите 111");
         n = Convert.ToDouble(Console.ReadLine());
@@ -23,20 +23,20 @@ void FillList (List<double> array)
     }
 }
 
-void PrintList (List<double> array)
+void PrintList(List<double> array)
 {
     for (int i = 0; i < array.Count - 1; i++) // array.Count - количество элементов в списке (аналогично как у массива array.Length) 
     {
-        Console.Write(array[i] + ", ");
+        Console.Write(array[i] + ", "); // идем до предпоследнего элемента, чтоб не стояла , после последнего элемента
     }
-    Console.Write(array[array.Count-1]);
+    Console.Write(array[array.Count - 1]);  // последний элемент списка
     Console.WriteLine();
 }
 
-void Find (List<double> array)
+void Find(List<double> array)
 {
     int count = 0;
-    for (int i = 0; i < array.Count - 1; i++) // array.Count - количество элементов в списке (аналогично как у массива array.Length) 
+    for (int i = 0; i < array.Count; i++) // array.Count - количество элементов в списке (аналогично как у массива array.Length) 
     {
         if (array[i] > 0) count++;
     }
