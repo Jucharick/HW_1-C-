@@ -49,13 +49,16 @@ void SortByLines(int[,] matr)
 {
     for (int i = 0; i < matr.GetLength(0); i++)
     {
-        for (int j = 0; j <= matr.GetLength(1) - 2; j++)
+        for (int j = 0; j < matr.GetLength(1); j++)
         {
-            if (matr[i, j] > matr[i, j+1]) 
+            for (int k = 0; k <= matr.GetLength(1) - 2; k++) 
             {
-                int temp = matr[i, j];
-                matr[i, j] = matr[i, j+1];
-                matr[i, j+1] = matr[i, j];
+                if (matr[i, k] < matr[i, k+1]) 
+                {
+                    int temp = matr[i, k];
+                    matr[i, k] = matr[i, k+1];
+                    matr[i, k+1] = temp;
+                }
             }
         }
     }
