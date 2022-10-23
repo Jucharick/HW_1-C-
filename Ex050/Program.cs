@@ -11,7 +11,7 @@ int m = int.Parse(Console.ReadLine());
 Console.WriteLine("Введите длину матрицы (количество столбцов)");
 int n = int.Parse(Console.ReadLine());
 
-double[,] matrix = new double[m, n];
+int[,] matrix = new int[m, n];
 
 Console.WriteLine();
 FillMatrix(matrix, -2, 11);
@@ -19,7 +19,7 @@ PrintMatrix(matrix);
 
 
 
-void FillMatrix(double[,] matr, int from, int to)
+void FillMatrix(int[,] matr, int from, int to)
 {
     for (int i = 0; i < matr.GetLength(0); i++)
     {
@@ -30,7 +30,7 @@ void FillMatrix(double[,] matr, int from, int to)
     }
 }
 
-void PrintMatrix(double[,] matr)
+void PrintMatrix(int[,] matr)
 {
     for (int i = 0; i < matr.GetLength(0); i++)
     {
