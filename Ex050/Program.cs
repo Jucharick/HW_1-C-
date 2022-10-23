@@ -6,3 +6,38 @@
 // [1,7] -> такого элемента в массиве нет
 
 
+Console.WriteLine("Введите высоту матрицы (количество строк)");
+int m = int.Parse(Console.ReadLine());
+Console.WriteLine("Введите длину матрицы (количество столбцов)");
+int n = int.Parse(Console.ReadLine());
+
+double[,] matrix = new double[m, n];
+
+Console.WriteLine();
+FillMatrix(matrix, -2, 11);
+PrintMatrix(matrix);
+
+
+
+void FillMatrix(double[,] matr, int from, int to)
+{
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+        for (int j = 0; j < matr.GetLength(1); j++)
+        {
+            matr[i, j] = new Random().Next(from, to);
+        }
+    }
+}
+
+void PrintMatrix(double[,] matr)
+{
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+        for (int j = 0; j < matr.GetLength(1); j++)
+        {
+            Console.Write($" {Math.Round(matr[i, j], 1)} ");
+        }
+        Console.WriteLine();
+    }
+}
