@@ -6,18 +6,19 @@
 // [1,7] -> такого элемента в массиве нет
 
 
-Console.WriteLine("Введите высоту матрицы (количество строк)");
-int m = int.Parse(Console.ReadLine());
-Console.WriteLine("Введите длину матрицы (количество столбцов)");
-int n = int.Parse(Console.ReadLine());
+int[,] matrix = new int[3, 4];
 
-int[,] matrix = new int[m, n];
-
-Console.WriteLine();
 FillMatrix(matrix, -2, 11);
 PrintMatrix(matrix);
 
+Console.WriteLine();
+Console.WriteLine("Давайте проверим есть ли искомый элемент в матрице:");
+Console.WriteLine("Введите номер строки");
+int a = int.Parse(Console.ReadLine());
+Console.WriteLine("Введите номер сттолбца");
+int b = int.Parse(Console.ReadLine());
 
+FindElement(matrix);
 
 void FillMatrix(int[,] matr, int from, int to)
 {
@@ -36,8 +37,18 @@ void PrintMatrix(int[,] matr)
     {
         for (int j = 0; j < matr.GetLength(1); j++)
         {
-            Console.Write($" {Math.Round(matr[i, j], 1)} ");
+            Console.Write($" {matr[i, j]} ");
         }
         Console.WriteLine();
     }
+}
+
+void FindElement(int[,] matr)
+{
+    if (a < 0 || b < 0) Console.WriteLine("Номер строки или столбца не может быть меньше 0");
+    else if (a > matr.GetLength(0) - 1 || b > matr.GetLength(1) - 1)
+    {
+        Console.WriteLine($"Элемнта с позицией [{a}, {b}] в матрице нет");
+    }
+    else Console.WriteLine($"Элемнт с позицией [{a}, {b}] равен {matr[a, b]}");
 }
