@@ -39,8 +39,19 @@ void PrintMatrix(int[,] matr)
     }
 }
 
+void PrintArray(double[] array)
+{
+    for (int i = 0; i < array.Length - 1; i++)
+    {
+        Console.Write($"{array[i]}; ");
+    }
+    Console.Write($"{array[array.Length - 1]}");
+    Console.WriteLine();
+}
+
 void ArithmeticMean(int[,] matr)
 {
+    double[] arrayMean = new double [matr.GetLength(1)]; // массив, содержащий значения mean и имеющий количество элементов, равное количеству столбцов в матрице
     for (int i = 0; i < matr.GetLength(1); i++) // идем по столбцам
     {
         double mean = 0;
@@ -49,6 +60,8 @@ void ArithmeticMean(int[,] matr)
             mean = mean + matr[j, i];
             if (j == matr.GetLength(0) - 1) mean = Math.Round(mean / matr.GetLength(0), 1);
         }
-        Console.WriteLine($"среднее арифметическое элементов в столбце {i+1} равно {mean}");
+        arrayMean[i] = mean;
     }
+    Console.Write("Среднее арифметическое каждого столбца: ");
+    PrintArray(arrayMean);
 }
