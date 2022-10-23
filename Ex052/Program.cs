@@ -12,8 +12,9 @@ int n = int.Parse(Console.ReadLine());
 
 int[,] matrix = new int[m, n];
 
-FillMatrix(matrix, -2, 11);
+FillMatrix(matrix, 0, 11);
 PrintMatrix(matrix);
+ArithmeticMean(matrix);
 
 void FillMatrix(int[,] matr, int from, int to)
 {
@@ -35,5 +36,19 @@ void PrintMatrix(int[,] matr)
             Console.Write($" {matr[i, j]} ");
         }
         Console.WriteLine();
+    }
+}
+
+void ArithmeticMean(int[,] matr)
+{
+    for (int i = 0; i < matr.GetLength(1); i++) // идем по столбцам
+    {
+        double mean = 0;
+        for (int j = 0; j < matr.GetLength(0); j++) // идем по строкам
+        {
+            mean = mean + matr[j, i];
+            if (j == matr.GetLength(0) - 1) mean = Math.Round(mean / matr.GetLength(0), 1);
+        }
+        Console.Write($"{mean}  ");
     }
 }
