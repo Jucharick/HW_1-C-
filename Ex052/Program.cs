@@ -49,6 +49,6 @@ void ArithmeticMean(int[,] matr)
             mean = mean + matr[j, i];
             if (j == matr.GetLength(0) - 1) mean = Math.Round(mean / matr.GetLength(0), 1);
         }
-        Console.Write($"{mean}  ");
+        Console.WriteLine($"среднее арифметическое элементов в столбце {i+1} равно {mean}");
     }
 }
