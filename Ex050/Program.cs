@@ -48,7 +48,7 @@ void FindElement(int[,] matr)
     if (a < 0 || b < 0) Console.WriteLine("Номер строки или столбца не может быть меньше 0");
     else if (a > matr.GetLength(0) - 1 || b > matr.GetLength(1) - 1)
     {
-        Console.WriteLine($"Элемнта с позицией [{a}, {b}] в матрице нет");
+        Console.WriteLine($"Элемента с позицией [{a}, {b}] в матрице нет");
     }
-    else Console.WriteLine($"Элемнт с позицией [{a}, {b}] равен {matr[a, b]}");
+    else Console.WriteLine($"Элемент с позицией [{a}, {b}] равен {matr[a, b]}");
 }
