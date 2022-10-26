@@ -56,13 +56,13 @@ void PrintArray(int[] array)
 void MinElementInLine(int[] array)
 {
     int min = array[0];
-    int line = 0;
+    int line = 1;
     for (int i = 0; i < array.Length; i++)
     {
-        if (min > array[i]) 
+        if (min > array[i])
         {
             min = array[i];
-            line = i+1;
+            line = i + line;
         }
     }
     Console.Write(line);
@@ -70,7 +70,7 @@ void MinElementInLine(int[] array)
 
 void SumByLines(int[,] matr)
 {
-    int[] arraySum = new int [matr.GetLength(0)]; // массив с количеством элементов, равным количеству строк
+    int[] arraySum = new int[matr.GetLength(0)]; // массив с количеством элементов, равным количеству строк
     for (int i = 0; i < matr.GetLength(0); i++)
     {
         int sum = 0; // объявляю переменную sum и обнуляю при следующей итерации
@@ -81,7 +81,7 @@ void SumByLines(int[,] matr)
         arraySum[i] = sum;
     }
     Console.Write("Сумма элементов построчно: ");
-    PrintArray (arraySum);
+    PrintArray(arraySum);
     Console.WriteLine();
     Console.Write("Строка с наименьшей суммой элементов: ");
     MinElementInLine(arraySum);
