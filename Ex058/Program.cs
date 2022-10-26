@@ -21,31 +21,63 @@
 
 // В произведении матриц АВ число строк равно числу строк матрицы А , а число столбцов равно числу столбцов матрицы В.
 
-Console.WriteLine("matrixA");
-int[,] matrixA = new int[3, 4];
-Console.WriteLine("matrixB");
-int[,] matrixB = new int[2, 3];
 
-
-FillMatrix(matrixA, 0, 11);
-PrintMatrix(matrixA);
-Console.WriteLine();
-FillMatrix(matrixB, -3, 6);
-PrintMatrix(matrixB);
-MatrixMultiplication(matrixA, matrixB);
-
-
-
-void FillMatrix(int[,] matr, int from, int to)
+int[,] matrixA = new int[,]
 {
-    for (int i = 0; i < matr.GetLength(0); i++)
+    {1, 4},
+    {3, 5},
+};
+
+int[,] matrixB = new int[,]
+{
+    {3, 5},
+    {1, 2},
+};
+
+int[,] matrixC = new int[matrixA.GetLength(0), matrixB.GetLength(1)];
+
+int[,] MatrixMultiplication(int[,] matrixA, int[,] matrixB, int[,] matrixC)
+{
+    for (int i = 0; i < matrixA.GetLength(0); i++)
     {
-        for (int j = 0; j < matr.GetLength(1); j++)
+        for (int j = 0; j < matrixB.GetLength(1); j++)
         {
-            matr[i, j] = new Random().Next(from, to);
+            matrixC[i, j] = matrixA[i, j] * matrixB[i, j] + matrixA[i, j+1] * matrixB[i+1, j];
         }
     }
+    return matrixC;
 }
+PrintMatrix(matrixC);
+
+
+
+
+
+
+
+// Console.WriteLine("matrixA");
+// int[,] matrixA = new int[3, 4];
+// Console.WriteLine("matrixB");
+// int[,] matrixB = new int[2, 3];
+
+
+// FillMatrix(matrixA, 0, 11);
+// PrintMatrix(matrixA);
+// Console.WriteLine();
+// FillMatrix(matrixB, -3, 6);
+// PrintMatrix(matrixB);
+// MatrixMultiplication(matrixA, matrixB);
+
+// void FillMatrix(int[,] matr, int from, int to)
+// {
+//     for (int i = 0; i < matr.GetLength(0); i++)
+//     {
+//         for (int j = 0; j < matr.GetLength(1); j++)
+//         {
+//             matr[i, j] = new Random().Next(from, to);
+//         }
+//     }
+// }
 
 void PrintMatrix(int[,] matr)
 {
@@ -59,30 +91,34 @@ void PrintMatrix(int[,] matr)
     }
 }
 
-void MatrixMultiplication(int[,] matrixA, int[,] matrixB)
-{
-    if (matrixA.GetLength(0) == matrixB.GetLength(1))
-    {
-        int[,] matrixC = new int[matrixA.GetLength(0), matrixA.GetLength(1)];
-    }
-    else if (matrixA.GetLength(1) == matrixB.GetLength(0))
-    {
-        int[,] matrixC = new int[matrixB.GetLength(0), matrixB.GetLength(1)];
-    }
-    else 
-    {
-        Console.WriteLine("matrixA нельзя умножить на matrixB");
-        return;
-    }
-    
-    for (int i = 0; i < matrixC.GetLength(0); i++)
-    {
-        for (int j = 0; j < matrixC.GetLength(1); j++)
-        {
-            Console.Write($" {matr[i, j]} ");
-        }
-        Console.WriteLine();
-    }
-
-    PrintMatrix(matrixC);
-}
+// void MatrixMultiplication(int[,] matrixA, int[,] matrixB)
+// {
+//     if (matrixA.GetLength(0) == matrixB.GetLength(1)) // число строк матрицы A равно числу столбцов матрицы B 
+//     {
+//         int[,] matrixC = new int[matrixB.GetLength(0), matrixA.GetLength(1)]; // матрица C - число строк равно числу строк матрицы В, а число столбцов равно числу столбцов матрицы A
+//         for (int i = 0; i < matrixC.GetLength(0); i++)
+//         {
+//             for (int j = 0; j < matrixC.GetLength(1); j++)
+//             {
+//                 matrixC[i, j] = matrixA[i, j] * matrixB[i, j] + matrixA[i, j+1] * matrixB[i+1, j];
+//             }
+//         }
+//         PrintMatrix(matrixC);
+//     }
+//     else if (matrixA.GetLength(1) == matrixB.GetLength(0)) // число столбцов матрицы A равно числу строк B
+//     {
+//         int[,] matrixC = new int[matrixA.GetLength(0), matrixB.GetLength(1)]; // матрица C - число строк равно числу строк матрицы А, а число столбцов равно числу столбцов матрицы В
+//         for (int i = 0; i < matrixC.GetLength(0); i++)
+//         {
+//             for (int j = 0; j < matrixC.GetLength(1); j++)
+//             {
+//                 matrixC[i, j] = matrixA[i, j] * matrixB[i, j] + matrixA[i, j+1] * matrixB[i+1, j];
+//             }
+//         }
+//         PrintMatrix(matrixC);
+//     }
+//     else 
+//     {
+//         Console.WriteLine("matrixA нельзя умножить на matrixB");
+//     }  
+// }
