@@ -1,4 +1,4 @@
-﻿ // Задайте двумерный массив. Напишите программу, которая упорядочит элементы по убыванию (или возрастанию).
+﻿ // Задача 54.1 : Задайте двумерный массив. Напишите программу, которая упорядочит элементы по убыванию (или возрастанию).
 
 
  Console.WriteLine("Введите высоту матрицы (количество строк)");
@@ -35,3 +35,23 @@ void PrintMatrix(int[,] matr)
         Console.WriteLine();
     }
 }
+
+void SortByLines(int[,] matr)
+{
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+        for (int j = 0; j < matr.GetLength(1); j++)
+        {
+            for (int k = 0; k <= matr.GetLength(1) - 2; k++) 
+            {
+                if (matr[i, k] < matr[i, k+1]) 
+                {
+                    int temp = matr[i, k];
+                    matr[i, k] = matr[i, k+1];
+                    matr[i, k+1] = temp;
+                }
+            }
+        }
+    }
+}
+
