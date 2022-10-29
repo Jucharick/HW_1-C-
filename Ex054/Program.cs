@@ -14,13 +14,21 @@ int m = int.Parse(Console.ReadLine());
 Console.WriteLine("Введите длину матрицы (количество столбцов)");
 int n = int.Parse(Console.ReadLine());
 
-int[,] matrix = new int[m, n];
+if (m <= 0 || n <= 0)
+{
+    Console.WriteLine("Количество строк и/или количество столбцов матрицы не может быть меньше или равно 0");
+}
+else
+{
+    int[,] matrix = new int[m, n];
 
-FillMatrix(matrix, 0, 11);
-PrintMatrix(matrix);
-Console.WriteLine();
-SortByLines(matrix);
-PrintMatrix(matrix);
+    FillMatrix(matrix, 0, 11);
+    PrintMatrix(matrix);
+    Console.WriteLine();
+    SortByLines(matrix);
+    PrintMatrix(matrix);
+}
+
 
 void FillMatrix(int[,] matr, int from, int to)
 {
