@@ -5,7 +5,7 @@
 // 27(0,0,1) 90(0,1,1)
 // 26(1,0,1) 55(1,1,1)
 
-int[,,] matrix = new int[2, 2, 3];
+int[,,] matrix = new int[3, 2, 2];
 
 FillMatrix(matrix, 10, 100);
 PrintMatrix(matrix);
@@ -29,6 +29,7 @@ void PrintMatrix(int[,,] matr)
 {
     for (int i = 0; i < matr.GetLength(2); i++) // pages
     {
+        Console.WriteLine($"page № {i+1}");
         for (int j = 0; j < matr.GetLength(0); j++) // rows
         {
             for (int k = 0; k < matr.GetLength(1); k++) // columns
@@ -44,6 +45,7 @@ void GetElement(int[,,] matr)
 {
     for (int i = 0; i < matr.GetLength(2); i++) // pages
     {
+        Console.WriteLine($"page № {i+1}");
         for (int j = 0; j < matr.GetLength(0); j++) // rows
         {
             for (int k = 0; k < matr.GetLength(1); k++) // columns
