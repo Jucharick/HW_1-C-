@@ -5,7 +5,7 @@
 // 27(0,0,1) 90(0,1,1)
 // 26(1,0,1) 55(1,1,1)
 
-int[,,] matrix = new int[3, 3, 3];
+int[,,] matrix = new int[2, 2, 3];
 
 FillMatrix(matrix, 10, 100);
 PrintMatrix(matrix);
@@ -13,13 +13,13 @@ GetElement(matrix);
 
 void FillMatrix(int[,,] matr, int from, int to)
 {
-    for (int i = 0; i < matr.GetLength(0); i++) // pages
+    for (int i = 0; i < matr.GetLength(2); i++) // pages
     {
-        for (int j = 0; j < matr.GetLength(1); j++) // rows
+        for (int j = 0; j < matr.GetLength(0); j++) // rows
         {
-            for (int k = 0; k < matr.GetLength(2); k++) // columns
+            for (int k = 0; k < matr.GetLength(1); k++) // columns
             {
-                matr[i, j, k] = new Random().Next(from, to);
+                matr[j, k, i] = new Random().Next(from, to);
             }
         }
     }
@@ -27,11 +27,11 @@ void FillMatrix(int[,,] matr, int from, int to)
 
 void PrintMatrix(int[,,] matr)
 {
-    for (int i = 0; i < matr.GetLength(0); i++) // pages
+    for (int i = 0; i < matr.GetLength(2); i++) // pages
     {
-        for (int j = 0; j < matr.GetLength(1); j++) // rows
+        for (int j = 0; j < matr.GetLength(0); j++) // rows
         {
-            for (int k = 0; k < matr.GetLength(2); k++) // columns
+            for (int k = 0; k < matr.GetLength(1); k++) // columns
             {
                 Console.Write($" {matr[j, k, i]} ");
             }
@@ -42,11 +42,11 @@ void PrintMatrix(int[,,] matr)
 
 void GetElement(int[,,] matr)
 {
-    for (int i = 0; i < matr.GetLength(0); i++) // pages
+    for (int i = 0; i < matr.GetLength(2); i++) // pages
     {
-        for (int j = 0; j < matr.GetLength(1); j++) // rows
+        for (int j = 0; j < matr.GetLength(0); j++) // rows
         {
-            for (int k = 0; k < matr.GetLength(2); k++) // columns
+            for (int k = 0; k < matr.GetLength(1); k++) // columns
             {
                 Console.Write($"{matr[j, k, i]}  [{j}, {k}, {i}]  ");
             }
