@@ -7,28 +7,33 @@
 
 Console.WriteLine("Давайте проверим является ли число палиндромом. Введите целое число: ");
 string n = Console.ReadLine();
-if ( int.TryParse(n, out int result) ) // проверяю, что ввели число
-{
-    int length = n.Length;
+IsPalindrome(n);
+
+void IsPalindrome(string num)
+    {
+    if (int.TryParse(n, out int result)) // проверяю, что ввели число
+    {
+        int length = n.Length;
         int i = 0;
         bool check = false;
-        while (i < length/2)
+        while (i < length / 2)
         {
-            if (n[i] == n[n.Length - 1 - i]) 
+            if (n[i] == n[n.Length - 1 - i])
             {
                 check = true;
             }
-            else 
+            else
             {
                 check = false;
                 break;
             }
             i++;
-        }   
+        }
         if (check == true) Console.WriteLine("палиндром!!!");
         else Console.WriteLine("нет, не палиндром");
+    }
+    else Console.WriteLine("вы ввели некорректное значение");
 }
-else Console.WriteLine("вы ввели некорректное значение");
 
 
 
