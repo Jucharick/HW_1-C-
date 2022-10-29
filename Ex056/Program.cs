@@ -12,12 +12,20 @@ int m = int.Parse(Console.ReadLine());
 Console.WriteLine("Введите длину матрицы (количество столбцов)");
 int n = int.Parse(Console.ReadLine());
 
-int[,] matrix = new int[m, n];
+if (m <= 0 || n <= 0)
+{
+    Console.WriteLine("Количество строк и/или количество столбцов матрицы не может быть меньше или равно 0");
+}
+else
+{
+    int[,] matrix = new int[m, n];
+    FillMatrix(matrix, 0, 11);
+    PrintMatrix(matrix);
+    Console.WriteLine();
+    SumByLines(matrix);
+}
 
-FillMatrix(matrix, 0, 11);
-PrintMatrix(matrix);
-Console.WriteLine();
-SumByLines(matrix);
+
 
 
 void FillMatrix(int[,] matr, int from, int to)
@@ -56,16 +64,16 @@ void PrintArray(int[] array)
 void MinElementInLine(int[] array)
 {
     int min = array[0];
-    int line = 1;
+    int line = 0;
     for (int i = 0; i < array.Length; i++)
     {
         if (min > array[i])
         {
             min = array[i];
-            line = i + line;
+            line = i;
         }
     }
-    Console.Write(line);
+    Console.Write(line + 1);
 }
 
 void SumByLines(int[,] matr)
