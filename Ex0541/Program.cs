@@ -51,27 +51,36 @@ void SortMatrix(int[,] matr)
 {
     for (int i = 0; i < matr.GetLength(0); i++)
     {
-        for (int k = 0; k <= matr.GetLength(0) - 2; k++)
+        for (int j = 0; j < matr.GetLength(1); j++)
         {
-            for (int j = 0; j < matr.GetLength(1); j++)
+            for (int k = 0; k <= matr.GetLength(1) - 2; k++) 
             {
-                for (int l = 0; l <= matr.GetLength(1)-2; l++)
+                if (matr[i, k] > matr[i, k+1]) 
                 {
-                    if (matr[k,j] > matr[k+1,j])
-                    {
-                        if (matr[k,l] > matr[k,l+1])
-                        {
-                            int temp1 = matr[k,l];
-                            matr[k,l] = matr[k,l+1];
-                            matr[k,l+1] = temp1;
-                        }
-                        int temp0 = matr[k,l];
-                        matr[k,l] = matr[k+1,l];
-                        matr[k+1,l] = temp0; 
-                    }
+                    int temp = matr[i, k];
+                    matr[i, k] = matr[i, k+1];
+                    matr[i, k+1] = temp;
                 }
+
+
             }
+            for (int l = 0; l <= matr.GetLength(0) - 2; l++)
+            {
+                if (matr[l, j] > matr[l+1, j]) 
+                {
+                    int temp = matr[l, j];
+                    matr[l, j] = matr[l+1, j];
+                    matr[l+1, j] = temp;
+                }    
+
+
+
+            }            
+          
+
+
         }
+
     }
 }
 
