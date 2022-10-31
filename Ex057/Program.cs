@@ -24,12 +24,11 @@ else
 {
     int[,] matrix = new int[m, n];
 
-    FillMatrix(matrix, 0, 11);
+    FillMatrix(matrix, 0, 6);
     PrintMatrix(matrix);
     Console.WriteLine();
-    SortMatrix(matrix);
-    Console.WriteLine("Матрица с упорядоченными элементами по возрастанию:");
-    PrintMatrix(matrix);
+    Find(matrix);
+
 }
 
 
@@ -53,5 +52,32 @@ void PrintMatrix(int[,] matr)
             Console.Write($" {matr[i, j]} ");
         }
         Console.WriteLine();
+    }
+}
+
+
+void Find (int[,] matr)
+{
+    for (int i = 0; i < matr.GetLength(0); i++)
+    {
+        int count = 0;
+        for (int j = 0; j < matr.GetLength(1); j++)
+        {
+            count = 0;
+            int temp = matr[i, j];
+            for (int k = 0; k < matr.GetLength(0); k++)
+            {
+                for (int l = 0; l < matr.GetLength(1); l++)
+                {
+                    if (matr[k, l] == temp)
+                    {
+                        count ++;
+
+                    }
+                }
+            }
+
+        }
+        Console.WriteLine(count);
     }
 }

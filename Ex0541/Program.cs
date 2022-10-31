@@ -47,108 +47,55 @@ void PrintMatrix(int[,] matr)
     }
 }
 
-void SortMatrix(int[,] matr)
+
+void PrintArray(int[] array)
 {
-    for (int i = 0; i < matr.GetLength(0); i++)
+    for (int i = 0; i < array.Length - 1; i++)
     {
-        for (int j = 0; j < matr.GetLength(1); j++)
+        Console.Write($"{array[i]}; ");
+    }
+    Console.Write($"{array[array.Length - 1]}");
+    Console.WriteLine();
+}
+
+void SortArray(int[] array)
+{
+    for (int i = 0; i < array.Length; i++)
+    {
+        for (int j = 0; j <= array.Length - 2; j++)
         {
-            for (int m = 0; m < matr.GetLength(1); m++)
+            if (array[j] > array[j+1])
             {
-                for (int k = 0; k < matr.GetLength(1) - 1; k++)
-                {
-                    if (matr[i, k] > matr[i, k + 1])
-                    {
-                        int temp = matr[i, k];
-                        matr[i, k] = matr[i, k + 1];
-                        matr[i, k + 1] = temp;
-                    }
-                }
+                int temp = array[j];
+                array[j] = array[j+1];
+                array[j+1] = temp;
             }
-            for (int n = 0; n < matr.GetLength(0); n++)
-            {
-                for (int l = 0; l < matr.GetLength(0) - 1; l++)
-                {
-                    if (matr[l, j] > matr[l + 1, j])
-                    {
-                        int temp = matr[l, j];
-                        matr[l, j] = matr[l + 1, j];
-                        matr[l + 1, j] = temp;
-                    }
-                }
-            }
-            for (int n = 0; n < matr.GetLength(1); n++)
-            {
-                for (int l = 0; l < matr.GetLength(1) - 1; l++)
-                {
-                    if (matr[l, j] > matr[l + 1, j])
-                    {
-                        int temp = matr[l, j];
-                        matr[l, j] = matr[l + 1, j];
-                        matr[l + 1, j] = temp;
-                    }
-                }
-            }
-
-        }
-
+        } 
     }
 }
 
-
-
-
-
-
-// void PrintArray(int[] array)
-// {
-//     for (int i = 0; i < array.Length - 1; i++)
-//     {
-//         Console.Write($"{array[i]}; ");
-//     }
-//     Console.Write($"{array[array.Length - 1]}");
-//     Console.WriteLine();
-// }
-
-// void SortArray(int[] array)
-// {
-//     for (int i = 0; i < array.Length; i++)
-//     {
-//         for (int j = 0; j <= array.Length - 2; j++)
-//         {
-//             if (array[j] > array[j+1])
-//             {
-//                 int temp = array[j];
-//                 array[j] = array[j+1];
-//                 array[j+1] = temp;
-//             }
-//         } 
-//     }
-// }
-
-// void SortMatrix(int[,] matr)
-// {
-//     int[] arrayMatrElements = new int[matr.GetLength(0) * matr.GetLength(1)];
-//     int arEl = 0;
-//     for (int i = 0; i < matr.GetLength(0); i++) // преобразую матрицу в массив
-//     {
-//         for (int j = 0; j < matr.GetLength(1); j++)
-//         {
-//             arrayMatrElements[arEl] = matr[i, j];
-//             arEl++;
-//         }
-//     }
-//     // PrintArray(arrayMatrElements);
-//     SortArray(arrayMatrElements); // сортирую массив с элементами матрицы
-//     // PrintArray(arrayMatrElements);
-//     int mrEl =0;
-//     for (int i = 0; i < matr.GetLength(0); i++) // преобразую отсортированный массив обратно в матрицу
-//     {
-//         for (int j = 0; j < matr.GetLength(1); j++)
-//         {
-//             matr[i, j] = arrayMatrElements[mrEl];
-//             mrEl++;
-//         }
-//     }   
-// }
-
+void SortMatrix(int[,] matr)
+{
+    int[] arrayMatrElements = new int[matr.GetLength(0) * matr.GetLength(1)];
+    int arEl = 0;
+    for (int i = 0; i < matr.GetLength(0); i++) // преобразую матрицу в массив
+    {
+        for (int j = 0; j < matr.GetLength(1); j++)
+        {
+            arrayMatrElements[arEl] = matr[i, j];
+            arEl++;
+        }
+    }
+    // PrintArray(arrayMatrElements);
+    SortArray(arrayMatrElements); // сортирую массив с элементами матрицы
+    // PrintArray(arrayMatrElements);
+    int mrEl =0;
+    for (int i = 0; i < matr.GetLength(0); i++) // преобразую отсортированный массив обратно в матрицу
+    {
+        for (int j = 0; j < matr.GetLength(1); j++)
+        {
+            matr[i, j] = arrayMatrElements[mrEl];
+            mrEl++;
+        }
+    }   
+}
