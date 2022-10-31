@@ -56,28 +56,22 @@ void PrintMatrix(int[,] matr)
 }
 
 
-void Find (int[,] matr)
+void Find(int[,] matr)
 {
+    int[] array = new int[6]; //   встречаются элементы от 0 до 5 - 6 шт
     for (int i = 0; i < matr.GetLength(0); i++)
     {
-        int count = 0;
         for (int j = 0; j < matr.GetLength(1); j++)
         {
-            count = 0;
-            int temp = matr[i, j];
-            for (int k = 0; k < matr.GetLength(0); k++)
-            {
-                for (int l = 0; l < matr.GetLength(1); l++)
-                {
-                    if (matr[k, l] == temp)
-                    {
-                        count ++;
-
-                    }
-                }
-            }
+            array[matr[i, j]] = array[matr[i, j]] + 1;
 
         }
-        Console.WriteLine(count);
+    }
+    for (int i = 0; i < array.Length; i++)
+    {
+        if (array[i] > 0)
+        {
+            Console.WriteLine($"{i} встречается {array[i]} раз(а)");
+        }
     }
 }
