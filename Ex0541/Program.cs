@@ -53,31 +53,42 @@ void SortMatrix(int[,] matr)
     {
         for (int j = 0; j < matr.GetLength(1); j++)
         {
-            for (int k = 0; k <= matr.GetLength(1) - 2; k++) 
+            for (int m = 0; m < matr.GetLength(1); m++)
             {
-                if (matr[i, k] > matr[i, k+1]) 
+                for (int k = 0; k < matr.GetLength(1) - 1; k++)
                 {
-                    int temp = matr[i, k];
-                    matr[i, k] = matr[i, k+1];
-                    matr[i, k+1] = temp;
+                    if (matr[i, k] > matr[i, k + 1])
+                    {
+                        int temp = matr[i, k];
+                        matr[i, k] = matr[i, k + 1];
+                        matr[i, k + 1] = temp;
+                    }
                 }
-
-
             }
-            for (int l = 0; l <= matr.GetLength(0) - 2; l++)
+            for (int n = 0; n < matr.GetLength(0); n++)
             {
-                if (matr[l, j] > matr[l+1, j]) 
+                for (int l = 0; l < matr.GetLength(0) - 1; l++)
                 {
-                    int temp = matr[l, j];
-                    matr[l, j] = matr[l+1, j];
-                    matr[l+1, j] = temp;
-                }    
-
-
-
-            }            
-          
-
+                    if (matr[l, j] > matr[l + 1, j])
+                    {
+                        int temp = matr[l, j];
+                        matr[l, j] = matr[l + 1, j];
+                        matr[l + 1, j] = temp;
+                    }
+                }
+            }
+            for (int n = 0; n < matr.GetLength(1); n++)
+            {
+                for (int l = 0; l < matr.GetLength(1) - 1; l++)
+                {
+                    if (matr[l, j] > matr[l + 1, j])
+                    {
+                        int temp = matr[l, j];
+                        matr[l, j] = matr[l + 1, j];
+                        matr[l + 1, j] = temp;
+                    }
+                }
+            }
 
         }
 
