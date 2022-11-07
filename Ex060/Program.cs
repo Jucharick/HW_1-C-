@@ -20,11 +20,11 @@ void FillMatrixNonRepeatElements(int[,,] matr, int from, int to)
         {
             for (int k = 0; k < matr.GetLength(1); k++) // columns
             {
-                if (matr[j, k, i] > to) matr[j, k, i] = count - from - 1;
-                else matr[j, k, i] = from + count;
+                matr[j, k, i] = from + count;
                 count +=3;
+                if (matr[j, k, i] > to) matr[j, k, i] = matr[j, k, i] / 2;
             }
-            count ++;
+            count +=2;
         }
     }
 }
