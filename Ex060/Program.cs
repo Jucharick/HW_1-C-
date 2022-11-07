@@ -7,20 +7,24 @@
 
 int[,,] matrix = new int[3, 2, 2];
 
-FillMatrix(matrix, 10, 100);
+FillMatrixNonRepeatElements(matrix, 10, 100);
 PrintMatrix(matrix);
 GetElement(matrix);
 
-void FillMatrix(int[,,] matr, int from, int to)
+void FillMatrixNonRepeatElements(int[,,] matr, int from, int to)
 {
+    int count = 0;
     for (int i = 0; i < matr.GetLength(2); i++) // pages
     {
         for (int j = 0; j < matr.GetLength(0); j++) // rows
         {
             for (int k = 0; k < matr.GetLength(1); k++) // columns
             {
-                matr[j, k, i] = new Random().Next(from, to);
+                if (matr[j, k, i] > to) matr[j, k, i] = count - from - 1;
+                else matr[j, k, i] = from + count;
+                count +=3;
             }
+            count ++;
         }
     }
 }
