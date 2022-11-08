@@ -48,15 +48,17 @@ void FillMatrix(int[,] matr, int from, int to)
     }
 }
 
-void PrintMatrix(int[,] matr)
+void PrintMatrix(int [,] matrix) 
 {
-    for (int i = 0; i < matr.GetLength(0); i++)
+    for (int i = 0; i < matrix.GetLength(0); i++) // идем по строкам
     {
-        for (int j = 0; j < matr.GetLength(1); j++)
+        Console.Write("|");
+        for (int j = 0; j < matrix.GetLength(1); j++) // идем по колонкам
         {
-            Console.Write($" {matr[i, j]} ");
+            if (j < matrix.GetLength(1) - 1) Console.Write($" {matrix[i, j], 2} "); // 2 - для выравнивания вывода матрицы выводим по 2 символа
+            else Console.Write($" {matrix[i, j], 2} ");
         }
-        Console.WriteLine();
+        Console.WriteLine("|");
     }
 }
 
