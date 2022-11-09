@@ -33,47 +33,47 @@ int[,] SortBySpiral(int[,] matr)
     matr [i, j] = 1;
     
    
-    // while ( j < matr.GetLength(1) - 1)
-    // {
-    //     j ++;
-    //     temp ++;
-    //     matr [i, j] = temp;
-    // }
-    // while ( i < matr.GetLength(0) - 1 || i < matr.GetLength(0) - 2 )
-    // {
-    //     i ++;
-    //     temp ++;
-    //     matr [i, j] = temp;
-    // }
-    // while ( j > 0)
-    // {
-    //     j --;
-    //     temp ++;
-    //     matr [i, j] = temp;
-    // }
-    // while ( i > 1)
-    // {
-    //     i --;
-    //     temp ++;
-    //     matr [i, j] = temp;
-    // }
-    // while ( j < matr.GetLength(1) - 2)
-    // {
-    //     j ++;
-    //     temp ++;
-    //     matr [i, j] = temp;
-    // }
-    // while ( i < matr.GetLength(0) - 2)
-    // {
-    //     i ++;
-    //     temp ++;
-    //     matr [i, j] = temp;
-    // }
-    // while ( j > 1)
-    // {
-    //     j --;
-    //     temp ++;
-    //     matr [i, j] = temp;
-    // }
+    while ( j < matr.GetLength(1) - 1)
+    {
+        j ++;
+        temp ++;
+        matr [i, j] = temp;
+    }
+    while ( i < matr.GetLength(0) - 1 )
+    {
+        i ++;
+        temp ++;
+        matr [i, j] = temp;
+    }
+    while ( j > 0)
+    {
+        j --;
+        temp ++;
+        matr [i, j] = temp;
+    }
+    while ( i > 1)
+    {
+        i --;
+        temp ++;
+        matr [i, j] = temp;
+    }
+    while ( j < matr.GetLength(1) - 2)
+    {
+        j ++;
+        temp ++;
+        matr [i, j] = temp;
+    }
+    while ( i < matr.GetLength(0) - 2)
+    {
+        i ++;
+        temp ++;
+        matr [i, j] = temp;
+    }
+    while ( j > 1)
+    {
+        j --;
+        temp ++;
+        matr [i, j] = temp;
+    }
     return matr;   
 }
