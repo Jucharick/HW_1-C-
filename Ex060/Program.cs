@@ -22,9 +22,11 @@ void FillMatrixNonRepeatElements(int[,,] matr, int from, int to)
             {
                 matr[j, k, i] = from + count;
                 count +=3;
-                if (matr[j, k, i] > to) matr[j, k, i] = matr[j, k, i] / 2;
+                if (matr[j, k, i] > to -1)
+                {
+                    matr[j, k, i] = matr[j, k, i] / matr.GetLength(2);
+                }
             }
-            count +=2;
         }
     }
 }
