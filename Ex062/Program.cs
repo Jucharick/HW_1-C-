@@ -31,64 +31,48 @@ int[,] SortBySpiral(int[,] matr)
     int j = 0;
 
     matr [i, j] = 1;
-    while (temp < 8)
+
+    while ( j < matr.GetLength(1) - 1)
     {
-        if (matr[i, j+1] == 0 && j < matr.GetLength(1) - 2) 
-        {
-            matr[i, j+1] = temp ++;
-            j++;
-        }
-        if (matr[i+1, j] == 0 && i < matr.GetLength(0) - 2)
-        {
-            matr[i+1, j] = temp ++;
-            i++;
-        }
-
+        j ++;
+        temp ++;
+        matr [i, j] = temp;
     }
-
-
-
-    // while ( j < matr.GetLength(1) - 1)
-    // {
-    //     j ++;
-    //     temp ++;
-    //     matr [i, j] = temp;
-    // }
-    // while ( i < matr.GetLength(0) - 1 )
-    // {
-    //     i ++;
-    //     temp ++;
-    //     matr [i, j] = temp;
-    // }
-    // while ( j > 0)
-    // {
-    //     j --;
-    //     temp ++;
-    //     matr [i, j] = temp;
-    // }
-    // while ( i > 1)
-    // {
-    //     i --;
-    //     temp ++;
-    //     matr [i, j] = temp;
-    // }
-    // while ( j < matr.GetLength(1) - 2)
-    // {
-    //     j ++;
-    //     temp ++;
-    //     matr [i, j] = temp;
-    // }
-    // while ( i < matr.GetLength(0) - 2)
-    // {
-    //     i ++;
-    //     temp ++;
-    //     matr [i, j] = temp;
-    // }
-    // while ( j > 1)
-    // {
-    //     j --;
-    //     temp ++;
-    //     matr [i, j] = temp;
-    // }
+    while ( i < matr.GetLength(0) - 1 )
+    {
+        i ++;
+        temp ++;
+        matr [i, j] = temp;
+    }
+    while ( j > 0)
+    {
+        j --;
+        temp ++;
+        matr [i, j] = temp;
+    }
+    while ( i > 1)
+    {
+        i --;
+        temp ++;
+        matr [i, j] = temp;
+    }
+    while ( j < matr.GetLength(1) - 2)
+    {
+        j ++;
+        temp ++;
+        matr [i, j] = temp;
+    }
+    while ( i < matr.GetLength(0) - 2)
+    {
+        i ++;
+        temp ++;
+        matr [i, j] = temp;
+    }
+    while ( j > 1)
+    {
+        j --;
+        temp ++;
+        matr [i, j] = temp;
+    }
     return matr;   
 }
