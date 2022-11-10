@@ -20,13 +20,39 @@
 
 
 
-double Fibonacci(int n) // метод, принимающий целое число и возвращающий целое число.
+int row = 5; // выводим 5 строк треугольника Паскаля
+int[,] triangle = new int[row, row];
+const int cellWidth = 3; // количество сиволов, используемые для вывода этого треугольника
+
+void FillTriangle()
 {
-    if(n == 1 || n == 2) return 1;
-    else return Fibonacci(n-1) + Fibonacci(n-2);
+    for (int i = 0; i < row; i++)
+    {
+        triangle[i, 0] = 1; // выводим первую строку
+        triangle[i, i] = 1; // выводим крайние элементы
+    }
+    for (int i = 2; i < row; i++)
+    {
+        for (int j = 1; j < row; j++)
+        {
+            triangle[i, j] =  triangle[i - 1, j - 1] +  triangle[i - 1, j]; // triangle[i - 1, j - 1] - элемент над текущим элементом; triangle[i - 1, j] - элемент выше и левее текущего элемента
+        }
+    }
 }
 
-for (int i = 1; i < 7; i++)
-{
-    Console.WriteLine($"f({i}) = {Fibonacci(i)}");
-}
+
+
+
+
+
+
+// double Fibonacci(int n) // метод, принимающий целое число и возвращающий целое число.
+// {
+//     if(n == 1 || n == 2) return 1;
+//     else return Fibonacci(n-1) + Fibonacci(n-2);
+// }
+
+// for (int i = 1; i < 7; i++)
+// {
+//     Console.WriteLine($"f({i}) = {Fibonacci(i)}");
+// }

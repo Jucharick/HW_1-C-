@@ -31,10 +31,19 @@ int[,] SortBySpiral(int[,] matr)
     int j = 0;
 
     matr [i, j] = 1;
-    while (temp < matr.Length)
+    while (temp < 8)
     {
-        if (matr[i, j+1] == 0) matr[i, j+1] = temp ++;
-        if (matr[i+1, j] == 0) matr[i, j+1] = temp ++;
+        if (matr[i, j+1] == 0 && j < matr.GetLength(1) - 2) 
+        {
+            matr[i, j+1] = temp ++;
+            j++;
+        }
+        if (matr[i+1, j] == 0 && i < matr.GetLength(0) - 2)
+        {
+            matr[i+1, j] = temp ++;
+            i++;
+        }
+
     }
 
 
