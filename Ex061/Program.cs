@@ -24,7 +24,7 @@ int row = 5; // выводим 5 строк треугольника Паска�
 int[,] triangle = new int[row, row];
 const int cellWidth = 3; // количество сиволов, используемые для вывода этого треугольника
 
-void FillTriangle()
+void FillTriangle(int[,] triangle)
 {
     for (int i = 0; i < row; i++)
     {
@@ -33,13 +33,53 @@ void FillTriangle()
     }
     for (int i = 2; i < row; i++)
     {
-        for (int j = 1; j < row; j++)
+        for (int j = 1; j <= i; j++)
         {
-            triangle[i, j] =  triangle[i - 1, j - 1] +  triangle[i - 1, j]; // triangle[i - 1, j - 1] - элемент над текущим элементом; triangle[i - 1, j] - элемент выше и левее текущего элемента
+            triangle[i, j] = triangle[i - 1, j - 1] + triangle[i - 1, j]; // triangle[i - 1, j - 1] - элемент над текущим элементом; triangle[i - 1, j] - элемент выше и левее текущего элемента
         }
     }
 }
 
+void PrintTriangle(int[,] triangle)
+{
+    for (int i = 0; i < row; i++)
+    {
+        for (int j = 0; j < row; j++)
+        {
+            if (triangle[i, j] != 0) // в треугольнике Паскаля нет нулевых элементов
+            {
+                Console.Write($"{triangle[i, j], cellWidth}");
+            }
+        }
+        Console.WriteLine();
+    }
+}
+
+// void Magic()
+// {
+//     int col = cellWidth*row;
+//     for (int i = 0; i < row; i++)
+//     {
+//         for (int j = 1; j <= i; j++)
+//         {
+//             Console.SetCursorPosition(col, i+1);
+//             if (triangle[i, j] != 0) // в треугольнике Паскаля нет нулевых элементов
+//             {
+//                 Console.WriteLine($"{triangle[i, j], cellWidth}");
+//             }
+
+//             col = col + cellWidth * 2;
+//         }
+//         col = cellWidth * row - cellWidth * (i + 1);
+//         Console.WriteLine();
+//     }
+// }
+
+// Console.ReadLine();
+FillTriangle(triangle);
+PrintTriangle(triangle);
+// Console.ReadLine();
+// Magic();
 
 
 
