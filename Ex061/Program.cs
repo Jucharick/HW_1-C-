@@ -20,9 +20,9 @@
 
 
 
-int row = 5; // выводим 5 строк треугольника Паскаля
+int row = 7; // выводим 5 строк треугольника Паскаля
 int[,] triangle = new int[row, row];
-const int cellWidth = 3; // количество сиволов, используемые для вывода этого треугольника
+const int cellWidth = 4; // количество сиволов, используемые для вывода этого треугольника
 
 void FillTriangle(int[,] triangle)
 {
@@ -44,6 +44,10 @@ void PrintTriangle(int[,] triangle)
 {
     for (int i = 0; i < row; i++)
     {
+        for (int j = 0; j < row - i; j++) // создаём после каждой строки row-i отступов от левой стороны консоли, чем ниже строка, тем меньше отступ
+        {
+            Console.Write("..");
+        }
         for (int j = 0; j < row; j++)
         {
             if (triangle[i, j] != 0) // в треугольнике Паскаля нет нулевых элементов
@@ -55,44 +59,6 @@ void PrintTriangle(int[,] triangle)
     }
 }
 
-// void Magic()
-// {
-//     int col = cellWidth*row;
-//     for (int i = 0; i < row; i++)
-//     {
-//         for (int j = 1; j <= i; j++)
-//         {
-//             Console.SetCursorPosition(col, i+1);
-//             if (triangle[i, j] != 0) // в треугольнике Паскаля нет нулевых элементов
-//             {
-//                 Console.WriteLine($"{triangle[i, j], cellWidth}");
-//             }
 
-//             col = col + cellWidth * 2;
-//         }
-//         col = cellWidth * row - cellWidth * (i + 1);
-//         Console.WriteLine();
-//     }
-// }
-
-// Console.ReadLine();
 FillTriangle(triangle);
 PrintTriangle(triangle);
-// Console.ReadLine();
-// Magic();
-
-
-
-
-
-
-// double Fibonacci(int n) // метод, принимающий целое число и возвращающий целое число.
-// {
-//     if(n == 1 || n == 2) return 1;
-//     else return Fibonacci(n-1) + Fibonacci(n-2);
-// }
-
-// for (int i = 1; i < 7; i++)
-// {
-//     Console.WriteLine($"f({i}) = {Fibonacci(i)}");
-// }
