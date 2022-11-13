@@ -7,72 +7,101 @@
 
 
 int[,] matrix = new int[4, 4];
-int[,] matrixSpiral = SortBySpiral(matrix);
-PrintMatrix(matrixSpiral);
+// int[,] matrixSpiral = SortBySpiral(matrix);
+// PrintMatrix(matrixSpiral);
+int[,] matrixSpiral1 = BySpiral(matrix);
+PrintMatrix(matrixSpiral1);
 
 
-void PrintMatrix(int [,] matrix) 
+void PrintMatrix(int[,] matrix)
 {
     for (int i = 0; i < matrix.GetLength(0); i++) // идем по строкам
     {
         for (int j = 0; j < matrix.GetLength(1); j++) // идем по колонкам
         {
-            if (j < matrix.GetLength(1) - 1) Console.Write($" {matrix[i, j], 2} "); // 2 - для выравнивания вывода матрицы выводим по 2 символа
-            else Console.Write($" {matrix[i, j], 2} ");
+            if (j < matrix.GetLength(1) - 1) Console.Write($" {matrix[i, j],2} "); // 2 - для выравнивания вывода матрицы выводим по 2 символа
+            else Console.Write($" {matrix[i, j],2} ");
         }
         Console.WriteLine();
     }
 }
 
-int[,] SortBySpiral(int[,] matr)
+int[,] BySpiral(int[,] matr)
 {
-    int temp = 1;
+    int temp = 1; // значение, которое мы вставляем в ячейку в матрице
     int i = 0;
     int j = 0;
+    // два индекса, по которым мы обращаемся к матрице.
 
-    matr [i, j] = 1;
-
-    while ( j < matr.GetLength(1) - 1)
+    while (temp <= matr.Length)
     {
-        j ++;
-        temp ++;
-        matr [i, j] = temp;
+        matr[i, j] = temp;
+        temp++;
+        if (i <= j + 1 && i + j < matr.GetLength(1) - 1)
+            j++;
+        else if (i < j && i + j >= matr.GetLength(0) - 1)
+            i++;
+        else if (i >= j && i + j > matr.GetLength(1) - 1)
+            j--;
+        else
+            i--;
     }
-    while ( i < matr.GetLength(0) - 1 )
-    {
-        i ++;
-        temp ++;
-        matr [i, j] = temp;
-    }
-    while ( j > 0)
-    {
-        j --;
-        temp ++;
-        matr [i, j] = temp;
-    }
-    while ( i > 1)
-    {
-        i --;
-        temp ++;
-        matr [i, j] = temp;
-    }
-    while ( j < matr.GetLength(1) - 2)
-    {
-        j ++;
-        temp ++;
-        matr [i, j] = temp;
-    }
-    while ( i < matr.GetLength(0) - 2)
-    {
-        i ++;
-        temp ++;
-        matr [i, j] = temp;
-    }
-    while ( j > 1)
-    {
-        j --;
-        temp ++;
-        matr [i, j] = temp;
-    }
-    return matr;   
+    return matr;
 }
+
+
+
+
+
+// int[,] SortBySpiral(int[,] matr)
+// {
+//     int temp = 1;
+//     int i = 0;
+//     int j = 0;
+
+//     matr [i, j] = 1;
+
+//     while ( j < matr.GetLength(1) - 1)
+//     {
+//         j ++;
+//         temp ++;
+//         matr [i, j] = temp;
+//     }
+//     while ( i < matr.GetLength(0) - 1 )
+//     {
+//         i ++;
+//         temp ++;
+//         matr [i, j] = temp;
+//     }
+//     while ( j > 0)
+//     {
+//         j --;
+//         temp ++;
+//         matr [i, j] = temp;
+//     }
+//     while ( i > 1)
+//     {
+//         i --;
+//         temp ++;
+//         matr [i, j] = temp;
+//     }
+//     while ( j < matr.GetLength(1) - 2)
+//     {
+//         j ++;
+//         temp ++;
+//         matr [i, j] = temp;
+//     }
+//     while ( i < matr.GetLength(0) - 2)
+//     {
+//         i ++;
+//         temp ++;
+//         matr [i, j] = temp;
+//     }
+//     while ( j > 1)
+//     {
+//         j --;
+//         temp ++;
+//         matr [i, j] = temp;
+//     }
+//     return matr;   
+// }
