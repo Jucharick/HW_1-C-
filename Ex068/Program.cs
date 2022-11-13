@@ -4,3 +4,18 @@
 
 
 
+Console.WriteLine("Задайте неотрицательное число m");
+int m = int.Parse(Console.ReadLine());
+Console.WriteLine("Задайте неотрицательное число n");
+int n = int.Parse(Console.ReadLine());
+
+Console.WriteLine();
+Console.WriteLine($"Значение функции Аккермана => {AckermanFunction(m, n)}");
+
+int AckermanFunction(int m, int n)
+{
+    if (m == 0) return n + 1;
+    else if (m > 0 && n == 0) return AckermanFunction(m - 1, 1);
+    else if (m > 0 && n > 0) return AckermanFunction(m - 1, AckermanFunction(m, n - 1));
+    else return AckermanFunction(m, n);
+}
